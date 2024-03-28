@@ -1,0 +1,13 @@
+<div class="table">
+    <h5 class="text-center"> <span style="color: #107D11;">Queize Me </span></h5>
+
+    <p class="text-center" [style.color]="score > 2 ? '#107D11' : '#c01120'" >Score:  {{score}} / {{items.length}}</p>
+    <div style=" font-size: 16px;" *ngFor="let item of items; let i = index">
+        <p>{{i}}.{{item.question}}) </p>
+        <p><span style="color: #107D11;">Correct Answer : {{item.answer}} </span></p>
+        <p><span [style.color]="item.answer === item.yourAnswer ? '#107D11' : '#c01120'">>Your Answer : {{item.yourAnswer}}</span></p>
+        <hr>
+    </div>
+
+</div>
+

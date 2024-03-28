@@ -1,0 +1,71 @@
+<div class="container my-5">
+    <!-- <app-time></app-time> -->
+    <router-outlet></router-outlet>
+    
+    <div class="d-flex justify-content-end">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Submit
+        </button>
+        
+        <!-- Modal -->
+       
+    </div>
+
+
+    <div >
+        <h5>QUESTION - {{i+1}} / {{totalyQuestion}}</h5>
+    <div class="card p-3 m-auto">
+        
+      <blockquote class="blockquote mb-0 card-body">
+        
+        <h6>{{question.question}}</h6>
+        <div class="options" *ngFor="let option of question.options">
+
+            <input
+              type="radio"
+              name="options"
+              id="option1"
+              [value]="option"
+              [checked]="option === question.selected ? true : false"
+              (change)="onSelecting($event.target)"
+              /> {{option}}
+          </div>
+    </blockquote>
+    </div>
+   <div class="col-12 d-flex justify-content-center">
+    <div class="my-5 col-2 d-flex justify-content-between">
+        <button type="button" class="btn btn-primary" (click)="preavFun()">Prev</button> 
+        <button type="button" class="btn btn-primary" (click)="nextFun()">Next</button> 
+    </div>
+   </div>
+</div>
+
+<!-- <ng-template #showScore>
+    <div class="score">
+        <h3>Score : {{score}}</h3>
+      </div>
+</ng-template> -->
+
+<div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">QuezMe</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <p> Hey! you have {{questions.length - i}} unanswered questions. Are you sure to Submit ?</p>
+
+        </div>
+        <!-- <a routerLink="/result" routerLinkActive="active" ariaCurrentWhenActive="page">First Component</a> -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" routerLink="/result" (click)="navigate()" >Yes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        </div>
+    </div>
+    </div>
+</div>
+                    
+</div>
+
